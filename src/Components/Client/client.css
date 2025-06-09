@@ -1,0 +1,133 @@
+
+.testimonials-section-container-pinaka {
+  width: 90%;
+  max-width: 1200px; 
+  margin: 50px auto; 
+  padding: 20px 0;
+}
+
+.testimonials-main-title-pinaka {
+  text-align: center;
+  font-size: 2.5em; /* Larger title */
+  font-weight: bold;
+  color: #333; /* Darker color */
+  margin-bottom: 10px;
+}
+
+.testimonials-subtitle-pinaka {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 40px; /* Space below subtitle */
+}
+
+/* --- Testimonial Card Styles --- */
+.testimonial-card-pinaka {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 30px 20px; /* Increased padding */
+  margin: 0 15px; /* Spacing between cards in the slider */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer, slightly larger shadow */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  min-height: 280px; /* Ensure consistent card height (adjust as needed) */
+  justify-content: flex-start; /* Start content from the top */
+}
+
+.testimonial-avatar-container-pinaka {
+  width: 80px; /* Size of the blue circle */
+  height: 80px;
+  background-color: #007580; /* Blue background for the circle */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Space below avatar */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for the avatar circle */
+}
+
+.testimonial-avatar-pinaka {
+  width: 70px; /* Size of the actual image if provided */
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white; /* Small white border inside blue circle */
+}
+
+.testimonial-placeholder-icon-pinaka svg {
+  width: 40px; /* Size of the SVG icon */
+  height: 40px;
+  color: #fff; /* White color for the SVG icon */
+}
+
+.testimonial-quote-pinaka {
+  font-size: 1.05em; /* Slightly larger text for readability */
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px; /* Space below quote */
+  flex-grow: 1; /* Allows quote to take available space for consistent height */
+  overflow: hidden; /* Hide overflow if quote is too long */
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Limit lines of text for consistency, adjust as needed */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* Add ellipsis if text is truncated */
+}
+
+.testimonial-name-pinaka {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px; /* Space below name */
+}
+
+.testimonial-client-type-pinaka {
+  font-size: 0.9em;
+  color: #888;
+  margin-top: 0;
+}
+
+/* --- React Slick Customizations --- */
+
+/* Adjust dots */
+.slick-dots li button:before {
+  font-size: 10px; /* Size of the dots */
+  color: #bbb; /* Color of inactive dots */
+  opacity: 0.75;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #007580; /* Color of active dot */
+  opacity: 1;
+}
+
+.slick-dots {
+  bottom: -40px; /* Position dots below the slider */
+}
+
+/* Optional: Arrows if you want them on larger screens */
+.slick-prev,
+.slick-next {
+  width: 30px;
+  height: 30px;
+  z-index: 1; /* Ensure arrows are clickable */
+}
+
+.slick-prev {
+  left: -40px; /* Adjust positioning */
+}
+
+.slick-next {
+  right: -40px; /* Adjust positioning */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px; /* Size of arrow icons */
+  color: #007580; /* Color of arrow icons */
+  opacity: 0.8;
+}
+
+/* Hide arrows on smaller screens (matching breakpoint logic) */
