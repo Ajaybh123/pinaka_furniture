@@ -4,6 +4,15 @@ import 'slick-carousel/slick/slick-theme.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import './recent.css'; 
 
+import Recent1 from '/src/assets/Barstool/stool5.png';
+import Recent2 from '/src/assets/Booths/booth5.png';
+import Recent3 from '/src/assets/chair/chair5.png';
+import Recent4 from '/src/assets/sofa/sofa5.png';
+import Recent5 from '/src/assets/table/wooden/wooden_table5.png';
+import Recent6 from '/src/assets/table/stone/stone_table3.png';
+import Recent7 from '/src/assets/table/mosaic/mosaic_table5.png';
+import Recent8 from '/src/assets/Booths/booth4.png';
+
 const Card = ({ image, title, status }) => (
   <div className="card-container-recent">
     {status && <span className="card-category-recent">{status}</span>}
@@ -57,42 +66,42 @@ const Features = () => {
     {
             title: 'library stool',
             status: 'Bar Stool',
-            image: '/src/assets/Barstool/stool5.png',
+            image: Recent1,
         },
         {
             title: 'library stool Chair',
             status: 'Booth',
-            image: '/src/assets/Booths/booth5.png',
+            image: Recent2,
         },
         {
             title: 'library stool Chair',
             status: 'Chair',
-            image: '/src/assets/chair/chair5.png',
+            image: Recent3,
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-            image: '/src/assets/sofa/sofa5.png',
+            image: Recent4,
         },
         {
             title: 'library stool',
             status: 'Table',
-            image: '/src/assets/table/wooden/wooden_table5.png',
+            image: Recent5,
         },
         {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/stone/stone_table3.png',
+            image: Recent6,
         },
         {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/mosaic/mosaic_table5.png',
+            image: Recent7,
         },
         {
             title: 'library stool Chair',
             status: 'Booth',
-            image: '/src/assets/Booths/booth4.png',
+            image: Recent8,
         },
   ];
 

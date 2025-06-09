@@ -4,6 +4,16 @@ import 'slick-carousel/slick/slick-theme.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import './feature.css'; 
 
+import Feature1 from '/src/assets/Barstool/stool9.png';
+import Feature2 from '/src/assets/Booths/booth4.png';
+import Feature3 from '/src/assets/chair/chair4.png';
+import Feature4 from '/src/assets/sofa/sofa4.png';
+import Feature5 from '/src/assets/table/metal/metal_table1.png';
+import Feature6 from '/src/assets/sofa/banner4.png';
+import Feature7 from '/src/assets/Barstool/stool6.png';
+import Feature8 from '/src/assets/table/terrazzo/terrazzo_table4.png';
+
+
 const Card = ({ image, title, status }) => (
   <div className="card-container">
     {status && <span className="card-category">{status}</span>}
@@ -56,42 +66,42 @@ const Features = () => {
     {
             title: 'library stool',
             status: 'Bar Stool',
-            image: '/src/assets/Barstool/stool9.png',
+            image: Feature1,
         },
         {
             title: 'library stool Chair',
             status: 'Booth',
-            image: '/src/assets/Booths/booth4.png',
+            image: Feature2,
         },
         {
             title: 'library stool Chair',
             status: 'Chair',
-            image: '/src/assets/chair/chair4.png',
+            image: Feature3,
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-            image: '/src/assets/sofa/sofa4.png',
+            image: Feature4,
         },
         {
             title: 'library stool',
             status: 'Table',
-            image: '/src/assets/table/metal/metal_table1.png',
+            image: Feature5,
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-            image: '/src/assets/sofa/banner4.png',
+            image: Feature6,
         },
         {
             title: 'library stool Chair',
             status: 'Bar Stool',
-            image: '/src/assets/Barstool/stool6.png',
+            image: Feature7,
         },
         {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/terrazzo/terrazzo_table4.png',
+            image: Feature8,
         },
   ];
 

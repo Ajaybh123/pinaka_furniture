@@ -1,6 +1,33 @@
 import { useState } from "react";
 import SectionTitle from "../SectionTitle/SectionTitle";
-import { ShoppingCart } from "lucide-react";
+
+import ProductNew1 from '/src/assets/chair/chair1.png';
+import ProductNew2 from '/src/assets/table/terrazzo/terrazzo_table1.png';
+import ProductNew3 from '/src/assets/Booths/booth1.png';
+import ProductNew4 from '/src/assets/sofa/sofa1.png';
+
+import ProductTrend1 from '/src/assets/chair/chair2.png';
+import ProductTrend2 from '/src/assets/Booths/booth2.png';
+import ProductTrend3 from '/src/assets/table/terrazzo/terrazzo_table2.png';
+import ProductTrend4 from '/src/assets/sofa/sofa2.png';
+
+import ProductSell1 from '/src/assets/sofa/sofa3.png';
+import ProductSell2 from '/src/assets/Booths/booth3.png';
+import ProductSell3 from '/src/assets/table/terrazzo/terrazzo_table3.png';
+import ProductSell4 from '/src/assets/chair/chair3.png';
+
+import Product1 from '/src/assets/chair/chair2.png';
+import Product2 from '/src/assets/Booths/booth2.png';
+import Product3 from '/src/assets/Barstool/stool2.png';
+import Product4 from '/src/assets/sofa/sofa2.png';
+import Product5 from '/src/assets/sofa/sofa3.png';
+import Product6 from '/src/assets/table/terrazzo/terrazzo_table3.png';
+import Product7 from '/src/assets/Booths/booth3.png';
+import Product8 from '/src/assets/chair/chair3.png';
+import Product9 from '/src/assets/chair/chair1.png';
+import Product10 from '/src/assets/Booths/booth1.png';
+import Product11 from '/src/assets/table/terrazzo/terrazzo_table1.png';
+import Product12 from '/src/assets/sofa/sofa1.png';
 
 const Product = () => {
 
@@ -36,75 +63,75 @@ const Product = () => {
         {
             title: 'library stool',
             status: 'Chair',
-            image: '/src/assets/chair/chair1.png',
+            image: ProductNew1,
             product: 'newest',
         },
         {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/terrazzo/terrazzo_table1.png',
+            image: ProductNew2,
             product: 'newest',
         },
         {
             title: 'library stool',
             status: 'Booth',
-            image: '/src/assets/Booths/booth1.png',
+            image: ProductNew3,
             product: 'newest',
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-            image: '/src/assets/sofa/sofa1.png',
+            image: ProductNew4,
             product: 'newest',
         },
 
         {
             title: 'library stool Chair',
             status: 'Chair',
-            image: '/src/assets/chair/chair2.png',
+            image: ProductTrend1,
             product: 'trending',
         },
         {
             title: 'library stool',
             status: 'Booth',
-            image: '/src/assets/Booths/booth2.png',
+            image: ProductTrend2,
             product: 'trending',
         },
         {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/terrazzo/terrazzo_table2.png',
+            image: ProductTrend3,
             product: 'trending',
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-            image: '/src/assets/sofa/sofa2.png',
+            image: ProductTrend4,
             product: 'trending',
         },
         {
             title: 'library stool',
             status: 'Sofa',
-            image: '/src/assets/sofa/sofa3.png',
+            image: ProductSell1,
             currentPrice: '$200',
             product: 'best_seller',
         },
         {
             title: 'library stool Chair',
             status: 'Booth',
-            image: '/src/assets/Booths/booth3.png',
+            image: ProductSell2,
             product: 'best_seller',
         },
         {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/terrazzo/terrazzo_table3.png',
+            image: ProductSell3,
             product: 'best_seller',
         },
         {
             title: 'library stool Chair',
             status: 'Chair',
-            image: '/src/assets/chair/chair3.png',
+            image: ProductSell4,
             product: 'best_seller',
         },
         {
@@ -134,73 +161,73 @@ const Product = () => {
         {
             title: 'library stool Chair',
             status: 'Chair',
-             image: '/src/assets/chair/chair2.png',
+             image: Product1,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Booth',
-            image: '/src/assets/Booths/booth2.png',
+            image: Product2,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Stool',
-            image: '/src/assets/Barstool/stool2.png',
+            image: Product3,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-            image: '/src/assets/sofa/sofa2.png',
+            image: Product4,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-             image: '/src/assets/sofa/sofa3.png',
+             image: Product5,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/terrazzo/terrazzo_table3.png',
+            image: Product6,
             product: 'all',
           },
           {
             title: 'library stool Chair',
             status: 'Booth',
-            image: '/src/assets/Booths/booth3.png',
+            image: Product7,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Chair',
-            image: '/src/assets/chair/chair3.png',
+            image: Product8,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Chair',
-            image: '/src/assets/chair/chair1.png',
+            image: Product9,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Booth',
-            image: '/src/assets/Booths/booth1.png',
+            image: Product10,
             product: 'all',
           },
           {
             title: 'library stool Chair',
             status: 'Table',
-            image: '/src/assets/table/terrazzo/terrazzo_table1.png',
+            image: Product11,
             product: 'all',
         },
         {
             title: 'library stool Chair',
             status: 'Sofa',
-            image: '/src/assets/sofa/sofa1.png',
+            image: Product12,
             product: 'all',
         },
     ];

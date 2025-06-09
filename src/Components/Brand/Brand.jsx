@@ -2,32 +2,38 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Brand1 from '/src/assets/brands/brand_1.png';
+import Brand2 from '/src/assets/brands/brand_2.png';
+import Brand3 from '/src/assets/brands/brand_3.png';
+import Brand4 from '/src/assets/brands/brand_4.png';
+import Brand5 from '/src/assets/brands/brand_5.png';
+import Brand6 from '/src/assets/brands/brand_6.png';
 
 const brandLogos = [
     
     {
         id: 1,
-        src: "/src/assets/brands/brand_1.png",
+        src: Brand1,
     },
     {
         id: 2,
-        src: "/src/assets/brands/brand_2.png",
+        src: Brand2,
     },
     {
         id: 3,
-        src: "/src/assets/brands/brand_3.png",
+        src: Brand3,
     },
     {
         id: 4,
-        src: "/src/assets/brands/brand_4.png",
+        src: Brand4,
     },
     {
         id: 5,
-        src: "/src/assets/brands/brand_4.png",
+        src: Brand5,
     },
     {
         id: 6,
-        src: "/src/assets/brands/brand_6.png",
+        src: Brand6,
     },
   
 ];

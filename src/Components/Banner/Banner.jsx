@@ -2,7 +2,11 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { MoveRight } from "lucide-react";
+import { Ban, MoveRight } from "lucide-react";
+import Banner1 from '/src/assets/Banner/banner1.png';
+import Banner2 from '/src/assets/Banner/banner2.png';
+import Banner3 from '/src/assets/Banner/banner3.png';
+import Banner4 from '/src/assets/Banner/banner4.png';
 
 const Banner = () => {
 
@@ -11,25 +15,25 @@ const Banner = () => {
             id: 1,
             title: "Elevate Your Space with Our Luxe Bar Chair",
             subTitle: "welcome to Pinaka Art & Exports",
-            image: "/src/assets/Banner/banner1.png"
+            image: Banner1,
         },
         {
             id: 2,
             title: "Perfect Booth Seating for Every Space",
             subTitle: "welcome to Pinaka Art & Exports",
-            image: "/src/assets/Banner/banner2.png"
+            image: Banner2,
         },
         {
             id: 3,
             title: "Elevate Your Comfort with Premium Chairs",
             subTitle: "welcome to Pinaka Art & Exports",
-            image: "/src/assets/Banner/banner3.png"
+            image: Banner3,
         },
         {
             id: 4,
             title: "Designer Sofas for the Discerning Home",
             subTitle: "welcome to Pinaka Art & Exports",
-            image: "/src/assets/Banner/banner4.png"
+            image: Banner4,
         },
     ]
 
