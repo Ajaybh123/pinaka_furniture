@@ -14,7 +14,6 @@ const MainLayout = () => {
     return (
 
         <BrowserRouter>
-            {/* navbar  */}
             <Navbar />
             <Routes>
                 <Route path="/" element={
@@ -27,11 +26,9 @@ const MainLayout = () => {
                     <Route path="register" element={<Register/>} />
                 </Route>
 
-                {/* not found routes  */}
                 <Route path="*" element={<Error/> } />
             </Routes>
 
-            {/* footer component  */}
             <Footer />
 
         </BrowserRouter>

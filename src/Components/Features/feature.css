@@ -9,18 +9,17 @@ h2 {
   margin-bottom: 30px;
 }
 
-/* Card specific styles */
 .card-container {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-  margin: 10px; /* Space between cards */
+  margin: 10px; 
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensures content is spread vertically */
-  height: 100%; /* Important for consistent card height in slider */
+  justify-content: space-between; 
+  height: 100%; 
 }
 
 .card-category {
@@ -32,19 +31,19 @@ h2 {
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.8em;
-  z-index: 1; /* Ensure it's above the image */
+  z-index: 1; 
 }
 
 .card-image {
   width: 100%;
   height: auto;
-  display: block; /* Remove extra space below image */
+  display: block; 
 }
 
 .card-content {
   padding: 15px;
   text-align: center;
-  flex-grow: 1; /* Allows content to take available space */
+  flex-grow: 1; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -72,21 +71,16 @@ h2 {
   background-color: #014950;
 }
 
-/* Slick slider custom arrow styles (optional) */
 .slick-prev:before,
 .slick-next:before {
-  color: #333 !important; /* Make arrows visible */
+  color: #333 !important;
 }
 
-/* Ensure slick-list and track are visible */
 .slick-list {
-  overflow: hidden; /* This should be handled by slick-carousel itself but good to check */
+  overflow: hidden; 
 }
 
 .slick-track {
   display: flex;
-  align-items: stretch; /* Ensures cards have equal height */
+  align-items: stretch; 
 }
-
-/* Specific styling for the card in the image (Baba Dining Table, Library Stool Chair) */
-/* You would replace the placeholder images with your actual images

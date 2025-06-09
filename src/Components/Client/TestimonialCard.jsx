@@ -1,15 +1,12 @@
-// src/components/TestimonialCard.jsx (or directly in your main component file)
 import React from 'react';
 
 const TestimonialCard = ({ quote, name, clientType, avatarSrc }) => {
   return (
     <div className="testimonial-card-pinaka">
       <div className="testimonial-avatar-container-pinaka">
-        {/* You can use an img tag for actual avatars, or a Font Awesome/Material Icon */}
         {avatarSrc ? (
           <img src={avatarSrc} alt={name} className="testimonial-avatar-pinaka" />
         ) : (
-          // Placeholder icon if no image is provided, similar to your screenshot
           <div className="testimonial-placeholder-icon-pinaka">
             <svg
               xmlns="http://www.w3.org/2000/svg"

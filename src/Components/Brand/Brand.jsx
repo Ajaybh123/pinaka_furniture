@@ -67,7 +67,6 @@ const Brand = () => {
 
   return (
     <div className="mx-4 relative bg-slate-100 py-6 overflow-hidden rounded-xl">
-  {/* Left & Right Inner Shadows */}
   <div className="pointer-events-none absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-white via-white to-transparent z-10" />
   <div className="pointer-events-none absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-white via-white to-transparent z-10" />
 

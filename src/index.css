@@ -2,8 +2,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* google font inter  */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 
 @theme {
     --font-inter: "Inter", sans-serif;
@@ -29,7 +27,6 @@ body{
   display: none;
 }
 
-/* Banner Section */
 .banner {
    position: relative;
   z-index: 1;
@@ -64,7 +61,6 @@ body{
   z-index: -1;
 }
 
-/* At 640px and up, center the background circle */
 @media (min-width: 300px) {
   .banner::before {
     top: 50%;
@@ -112,7 +108,6 @@ body{
   }
 }
 
-/* Slick Arrows */
 .slider_container > .slick-slider > .slick-prev,
 .slider_container > .slick-slider > .slick-next {
   z-index: 5 !important;
@@ -170,7 +165,6 @@ body{
   }
 }
 
-/* Slick Dots */
 .slider_container > .slick-slider > .slick-dots {
   position: absolute;
   bottom: 60px !important;
@@ -221,7 +215,6 @@ body{
   color: #007580 !important;
 }
 
-/* Delivery Component Margin */
 .delivery_component {
   margin-top: -2rem;
   position: relative;
@@ -240,21 +233,9 @@ body{
   }
 }
 
-
-
-
-
-/* .features_slider>.slick-slider>.slick-prev:before,
-.features_slider>.slick-slider>.slick-next:before {
-    font-size: 39px !important;
-    color: #007580;
-} */
-
-/* Arrow size and position override (optional) */
 .slick-prev::before,
 .slick-next::before {
   font-size: 30px !important;
-  /* color: #000 !important; */
 }
 
 .slick-prev {

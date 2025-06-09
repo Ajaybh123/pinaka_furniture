@@ -8,9 +8,9 @@
 
 .testimonials-main-title-pinaka {
   text-align: center;
-  font-size: 2.5em; /* Larger title */
+  font-size: 2.5em; 
   font-weight: bold;
-  color: #333; /* Darker color */
+  color: #333; 
   margin-bottom: 10px;
 }
 
@@ -18,69 +18,69 @@
   text-align: center;
   font-size: 1.1em;
   color: #666;
-  margin-bottom: 40px; /* Space below subtitle */
+  margin-bottom: 40px; 
 }
 
-/* --- Testimonial Card Styles --- */
 .testimonial-card-pinaka {
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 30px 20px; /* Increased padding */
-  margin: 0 15px; /* Spacing between cards in the slider */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer, slightly larger shadow */
+  padding: 30px 20px; 
+  margin: 0 15px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
-  min-height: 280px; /* Ensure consistent card height (adjust as needed) */
-  justify-content: flex-start; /* Start content from the top */
+  align-items: center; 
+  min-height: 280px;
+  justify-content: flex-start; 
 }
 
 .testimonial-avatar-container-pinaka {
-  width: 80px; /* Size of the blue circle */
+  width: 80px; 
   height: 80px;
-  background-color: #007580; /* Blue background for the circle */
+  background-color: #007580; 
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; /* Space below avatar */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for the avatar circle */
+  margin-bottom: 20px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .testimonial-avatar-pinaka {
-  width: 70px; /* Size of the actual image if provided */
+  width: 70px; 
   height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid white; /* Small white border inside blue circle */
+  border: 2px solid white; 
 }
 
 .testimonial-placeholder-icon-pinaka svg {
-  width: 40px; /* Size of the SVG icon */
+  width: 40px; 
   height: 40px;
-  color: #fff; /* White color for the SVG icon */
+  color: #fff; 
 }
 
 .testimonial-quote-pinaka {
-  font-size: 1.05em; /* Slightly larger text for readability */
+  font-size: 1.05em; 
   color: #555;
   line-height: 1.6;
-  margin-bottom: 20px; /* Space below quote */
-  flex-grow: 1; /* Allows quote to take available space for consistent height */
-  overflow: hidden; /* Hide overflow if quote is too long */
+  margin-bottom: 20px; 
+  flex-grow: 1; 
+  overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* Limit lines of text for consistency, adjust as needed */
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;
-  text-overflow: ellipsis; /* Add ellipsis if text is truncated */
+  text-overflow: ellipsis; 
 }
 
 .testimonial-name-pinaka {
   font-size: 1.15em;
   font-weight: bold;
   color: #333;
-  margin-bottom: 5px; /* Space below name */
+  margin-bottom: 5px; 
 }
 
 .testimonial-client-type-pinaka {
@@ -89,45 +89,41 @@
   margin-top: 0;
 }
 
-/* --- React Slick Customizations --- */
 
-/* Adjust dots */
 .slick-dots li button:before {
-  font-size: 10px; /* Size of the dots */
-  color: #bbb; /* Color of inactive dots */
+  font-size: 10px;
+  color: #bbb; 
   opacity: 0.75;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #007580; /* Color of active dot */
+  color: #007580; 
   opacity: 1;
 }
 
 .slick-dots {
-  bottom: -40px; /* Position dots below the slider */
+  bottom: -40px;
 }
 
-/* Optional: Arrows if you want them on larger screens */
 .slick-prev,
 .slick-next {
   width: 30px;
   height: 30px;
-  z-index: 1; /* Ensure arrows are clickable */
+  z-index: 1; 
 }
 
 .slick-prev {
-  left: -40px; /* Adjust positioning */
+  left: -40px;
 }
 
 .slick-next {
-  right: -40px; /* Adjust positioning */
+  right: -40px; 
 }
 
 .slick-prev:before,
 .slick-next:before {
-  font-size: 30px; /* Size of arrow icons */
-  color: #007580; /* Color of arrow icons */
+  font-size: 30px;
+  color: #007580; 
   opacity: 0.8;
 }
 
-/* Hide arrows on smaller screens (matching breakpoint logic) */

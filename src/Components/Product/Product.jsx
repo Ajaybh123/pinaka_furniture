@@ -210,7 +210,6 @@ const Product = () => {
 
     return (
        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-  {/* Title & Filter Buttons */}
   <div className="flex flex-col items-center justify-center">
     <SectionTitle title="our product" textAlign="center" mb="mb-5" />
 
@@ -234,7 +233,6 @@ const Product = () => {
     </div>
   </div>
 
-  {/* Product Grid */}
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
     {productFilter?.map((product, index) => (
       <div key={index} className="p-4 bg-white shadow-sm rounded-xl">

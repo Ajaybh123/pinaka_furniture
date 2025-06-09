@@ -28,10 +28,7 @@ const Navbar = () => {
             <MailCheck size={16} /> pinakainc@gmail.com
           </p>
           <div className="flex items-center gap-4">
-            {/* <select defaultValue="eng" className="h-[30px] bg-transparent text-white">
-              <option value="eng">English</option>
-              <option value="bangla">Bangla</option>
-            </select> */}
+           
             <Link to="/faqs" className="capitalize hidden sm:inline-block">Faqs</Link>
             <Link to="/help" className="capitalize flex items-center gap-1">
               <Info size={16} /> Need Help
@@ -40,15 +37,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navbar */}
       <div className={`bg-white w-full shadow fixed ${hideTopBar ? 'top-0' : 'top-[45px]'}  left-0 z-50 transition-all duration-300 py-3`}>
         <div className="container mx-auto px-4 md:px-24 flex items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 text-2xl text-black font-medium">
             <img src={Logo} alt="Logo" className="h-16 w-auto object-contain" />
           </Link>
 
-          {/* Search Bar (Hidden on small screens) */}
           <form className="hidden md:block relative w-full max-w-[300px] h-[44px]">
             <input
               type="text"
@@ -60,14 +54,11 @@ const Navbar = () => {
             </button>
           </form>
 
-          {/* Navigation + Mobile Menu */}
           <div className="flex items-center gap-4">
-            {/* Search Icon (Mobile only) */}
             <div className="block md:hidden">
               <Search size={22} color="#000000" />
             </div>
 
-            {/* Desktop Nav Links */}
             <nav className="hidden md:flex items-center gap-6">
               <NavLink to="/" className="text-sm font-medium capitalize text-[#029fae]">Home</NavLink>
               <NavLink to="/shop" className="text-sm font-medium capitalize text-[#636270]">About</NavLink>
@@ -89,7 +80,6 @@ const Navbar = () => {
               </div>
             </nav>
 
-            {/* Mobile Menu Toggle */}
             <button
               className="md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -99,7 +89,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden px-4 py-4 bg-white border-t">
             <nav className="flex flex-col gap-4 text-sm">

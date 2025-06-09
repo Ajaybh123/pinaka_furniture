@@ -9,25 +9,19 @@ h2 {
   margin-bottom: 30px;
 }
 
-/* Card specific styles */
 .card-container-cat {
-  /* Removed: border, border-radius, overflow, box-shadow, display, flex-direction, justify-content, height */
-  margin: 10px; /* Space between cards */
-  position: relative; /* Essential for positioning child elements over the background */
-  height: 350px; /* **Define a fixed height for your cards or use aspect-ratio** */
-  /* Using a fixed height here for simplicity. Consider 'aspect-ratio' for more responsiveness. */
+  margin: 10px;
+  position: relative; 
+  height: 350px;
   
-  /* Background properties for the image */
-  background-size: cover; /* **Ensures the image covers the entire card area** */
-  background-position: center; /* **Centers the image within the card** */
-  background-repeat: no-repeat; /* **Prevents image repetition** */
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
   
-  /* Shadow for the card itself (optional, can be on an inner overlay too) */
-  border-radius: 8px; /* Apply border-radius here */
-  overflow: hidden; /* Ensures the background image respects border-radius */
+  border-radius: 8px; 
+  overflow: hidden;
 }
 
-/* New: Overlay for content and inner shadow */
 .card-content-overlay-cat {
   position: absolute;
   top: 0;
@@ -36,38 +30,37 @@ h2 {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Pushes content to the bottom */
+  justify-content: flex-end; 
   padding: 15px;
-  box-sizing: border-box; /* Include padding in width/height calculation */
+  box-sizing: border-box; 
 
-  /* Gradient overlay for readability and "inner shadow" effect */
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8) 0%, /* Dark at the bottom */
-    rgba(0, 0, 0, 0.5) 50%, /* Fades up */
-    rgba(0, 0, 0, 0) 100% /* Transparent at the top */
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 50%, 
+    rgba(0, 0, 0, 0) 100% 
   );
-  border-radius: 8px; /* Match parent's border-radius */
+  border-radius: 8px; 
 }
 
 .card-category-cat {
   position: absolute;
-  top: 15px; /* Adjust as needed, relative to the card-container-cat */
-  left: 15px; /* Adjust as needed */
+  top: 15px;
+  left: 15px;
   background-color: #007580;
   color: white;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.8em;
-  z-index: 2; /* Ensure it's above the overlay */
+  z-index: 2; 
 }
 
 .card-title-cat {
   margin-top: 0;
   margin-bottom: 15px;
-  font-size: 1.2em; /* Slightly larger for better readability on dark background */
-  color: #fff; /* **White color for readability on dark background** */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Optional: text shadow for more contrast */
+  font-size: 1.2em;
+  color: #fff; 
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -81,26 +74,24 @@ h2 {
   cursor: pointer;
   font-size: 1em;
   transition: background-color 0.3s ease;
-  align-self: center; /* Center the button within the flex container */
-  margin-top: 10px; /* Space above the button */
+  align-self: center; 
+  margin-top: 10px; 
 }
 
 .book-now-button-cat:hover {
   background-color: #014950;
 }
 
-/* Slick slider custom arrow styles (optional) */
 .slick-prev:before,
 .slick-next:before {
-  color: #333 !important; /* Make arrows visible */
+  color: #333 !important; 
 }
 
-/* Ensure slick-list and track are visible */
 .slick-list {
   overflow: hidden;
 }
 
 .slick-track {
   display: flex;
-  align-items: stretch; /* Ensures cards have equal height */
+  align-items: stretch;
 }

@@ -2,7 +2,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { MoveLeft, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 
 const Banner = () => {
 
@@ -53,7 +53,6 @@ const Banner = () => {
                             key={product?.id}
                             className="banner_slide_item flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-12 min-h-[400px] sm:min-h-[450px] md:min-h-[500px] py-6 sm:py-10"
                         >
-                            {/* Banner Text */}
                             <div className="banner_text w-full lg:w-1/2 text-center lg:text-left">
                                 <p className="text-xs sm:text-sm text-[#272343] uppercase font-inter font-normal mb-2">
                                     {product?.subTitle}
@@ -68,7 +67,6 @@ const Banner = () => {
                                 </div>
                             </div>
 
-                            {/* Banner Image */}
                             <div className="banner w-full lg:w-1/2 flex justify-center lg:justify-end">
                                 <img
                                     src={product?.image}

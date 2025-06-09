@@ -5,12 +5,10 @@ import { Link } from "react-router";
 const Footer = () => {
     return (
        <footer className="bg-[#1f1f1f] text-white">
-  {/* Top Footer */}
   <div className="border-t border-b border-gray-700 pt-12 pb-10">
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         
-        {/* Logo & Social */}
         <div>
           <div className="mb-6">
             <Link to="/" className="text-2xl lg:text-3xl font-inter font-medium flex items-center gap-2 text-white">
@@ -28,7 +26,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Categories */}
         <div>
           <h3 className="text-lg sm:text-xl text-gray-400 font-inter font-medium uppercase mb-4">Category</h3>
           <ul className="space-y-2">
@@ -40,7 +37,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Support */}
         <div>
           <h3 className="text-lg sm:text-xl text-gray-400 font-inter font-medium uppercase mb-4">Quik Link</h3>
           <ul className="space-y-2">
@@ -52,7 +48,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Newsletter */}
         <div>
           <h3 className="text-lg sm:text-xl text-gray-400 font-inter font-medium uppercase mb-4">Newsletter</h3>
           <form className="flex flex-col sm:flex-row gap-3 max-w-[424px]">
@@ -73,7 +68,6 @@ const Footer = () => {
     </div>
   </div>
 
-  {/* Bottom Footer */}
   <div className="py-4 sm:py-6 border-t border-gray-700">
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
