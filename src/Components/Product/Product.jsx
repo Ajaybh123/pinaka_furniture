@@ -282,7 +282,7 @@ const Product = () => {
               {product?.title}
             </h4>
             <span className="bg-[#007580] h-[40px] w-[100px] rounded-lg flex items-center justify-center">
-              Book Now
+              Order Now
             </span>
           </div>
           <p className="text-base sm:text-lg flex items-center gap-2 text-[#272343] font-semibold font-inter">

@@ -19,7 +19,7 @@ const Card = ({ image, title, status }) => (
     <img src={image} alt={title} className="card-image-recent rounded-xl" />
     <div className="card-content-recent">
       <h3 className="card-title-recent">{title}</h3>
-      <button className="book-now-button-recent">Book Now</button>
+      <button className="book-now-button-recent">Order Now</button>
     </div>
   </div>
 );

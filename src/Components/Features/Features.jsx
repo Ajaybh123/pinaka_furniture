@@ -20,7 +20,7 @@ const Card = ({ image, title, status }) => (
     <img src={image} alt={title} className="card-image" />
     <div className="card-content">
       <h3 className="card-title">{title}</h3>
-      <button className="book-now-button">Book Now</button>
+      <button className="book-now-button">Order Now</button>
     </div>
   </div>
 );

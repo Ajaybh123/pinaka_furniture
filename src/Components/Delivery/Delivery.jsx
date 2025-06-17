@@ -12,35 +12,35 @@ const Delivery = () => {
   const furnitureCategories = [
     {
       image: Product1,
-      title: 'Conference Furniture',
+      title: 'Bar Stool',
     },
     {
       image: Product2,
-      title: 'Meeting Room Furniture',
+      title: 'Marbal Table',
     },
     {
       image: Product3,
-      title: 'Healthcare Furniture',
+      title: 'Booths',
     },
     {
       image: Product4,
-      title: 'Desk Chairs',
+      title: 'Mosaic Table',
     },
     {
       image: Product5,
-      title: 'Sunloungers',
+      title: 'Chair',
     },
     {
       image: Product6,
-      title: 'Lighting',
+      title: 'Stone Table',
     },
     {
       image: Product7,
-      title: 'Table',
+      title: 'Sofa',
     },
     {
       image: Product8,
-      title: 'Other',
+      title: 'Wooden Table',
     },
     // Add more categories as needed
   ];
