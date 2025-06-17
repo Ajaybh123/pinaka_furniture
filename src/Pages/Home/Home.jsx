@@ -26,12 +26,13 @@ const Home = () => {
 
 
             {/* brand component  */}
-            <div className="brand flex items-center h-[171px] justify-center w-full mt-8 mb-8">
-                <Brand></Brand>
+            <div className="brand flex items-center justify-center w-full h-[171px] sm:h-[171px] h-[120px] my-96 sm:my-28">
+                <Brand />
             </div>
 
+
             {/* features component */}
-            <div className="w-full flex items-center justify-center mb-[80px]">
+            <div className="w-full flex items-center justify-center mb-[80px] mt-[50px]">
                 <Features></Features>
             </div>
 
@@ -47,11 +48,9 @@ const Home = () => {
 
 
             {/* client say component  */}
-            <div className="w-full flex items-center justify-center bg-[#f0f2f3] min-h-[589px] pb-[80px] pt-[80px]">
-
+            {/* <div className="w-full flex items-center justify-center bg-[#f0f2f3] min-h-[589px] pb-[80px] pt-[80px]">
                 <Client></Client>
-
-            </div>
+            </div> */}
 
 
             {/* Recent component  */}

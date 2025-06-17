@@ -1,45 +1,78 @@
 import { Clock3, Percent, ShieldCheck, Truck } from "lucide-react";
+import Product1 from '/src/assets/brands/brand1.png';
+import Product2 from '/src/assets/brands/brand5.png';
+import Product3 from '/src/assets/brands/brand2.png';
+import Product4 from '/src/assets/brands/brand6.png';
+import Product5 from '/src/assets/brands/brand3.png';
+import Product6 from '/src/assets/brands/brand7.png';
+import Product7 from '/src/assets/brands/brand4.png';
+import Product8 from '/src/assets/brands/brand8.png';
 
 const Delivery = () => {
-    return (
-       <div className="mx-4 sm:mx-auto max-w-[1440px] bg-white shadow-md p-4 sm:p-6 md:p-7 rounded-2xl">
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-    <div className="flex items-start gap-4">
-      <Percent size={36} className="text-[#272343] shrink-0" />
-      <div>
-        <h4 className="text-base sm:text-lg text-[#272343] font-inter font-medium mb-1.5 capitalize">Discount</h4>
-        <p className="text-sm sm:text-base text-[#9a9caa] font-inter">every week new sales</p>
+  const furnitureCategories = [
+    {
+      image: Product1,
+      title: 'Conference Furniture',
+    },
+    {
+      image: Product2,
+      title: 'Meeting Room Furniture',
+    },
+    {
+      image: Product3,
+      title: 'Healthcare Furniture',
+    },
+    {
+      image: Product4,
+      title: 'Desk Chairs',
+    },
+    {
+      image: Product5,
+      title: 'Sunloungers',
+    },
+    {
+      image: Product6,
+      title: 'Lighting',
+    },
+    {
+      image: Product7,
+      title: 'Table',
+    },
+    {
+      image: Product8,
+      title: 'Other',
+    },
+    // Add more categories as needed
+  ];
+
+
+  return (
+    <div className="sm:mx-auto max-w-[1440px] p-4 sm:p-6 md:p-7">
+      <div className="overflow-x-auto custom-scrollbar mt-[-50px]">
+        <div className="flex space-x-6 px-4 pb-4">
+          {furnitureCategories.map((category, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-60 bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-between"
+              style={{ minWidth: '240px' }} // Ensures cards maintain their width on smaller screens
+            >
+              <div className="relative w-40 h-30 flex items-center justify-center mb-4">
+                <div className="absolute inset-0 bg-gray-100 rounded-full opacity-70"></div>
+                <img
+                  src={category.image}
+                  alt={category.title}
+                  className="relative z-10 max-h-full max-w-full object-contain"
+                />
+              </div>
+              <p className="text-gray-800 font-medium text-lg mt-auto text-center">
+                {category.title}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-
-    <div className="flex items-start gap-4">
-      <Truck size={36} className="text-[#272343] shrink-0" />
-      <div>
-        <h4 className="text-base sm:text-lg text-[#272343] font-inter font-medium mb-1.5 capitalize">Free Delivery</h4>
-        <p className="text-sm sm:text-base text-[#9a9caa] font-inter">100% Free for all orders</p>
-      </div>
-    </div>
-
-    <div className="flex items-start gap-4">
-      <Clock3 size={36} className="text-[#272343] shrink-0" />
-      <div>
-        <h4 className="text-base sm:text-lg text-[#272343] font-inter font-medium mb-1.5 capitalize">Great Support 24/7</h4>
-        <p className="text-sm sm:text-base text-[#9a9caa] font-inter">We care your experiences</p>
-      </div>
-    </div>
-
-    {/* Item 4 */}
-    <div className="flex items-start gap-4">
-      <ShieldCheck size={36} className="text-[#272343] shrink-0" />
-      <div>
-        <h4 className="text-base sm:text-lg text-[#272343] font-inter font-medium mb-1.5 capitalize">Secure Payment</h4>
-        <p className="text-sm sm:text-base text-[#9a9caa] font-inter">100% Secure Payment Method</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-    );
+  );
 };
 
 export default Delivery;

@@ -107,7 +107,7 @@ const Features = () => {
 
   return (
     <div className="app-container">
-      <SectionTitle title="Featured Products" mb="mb-11" />
+      <h2 className='text-3xl text-[#272343] font-semibold font-inter capitalize'>Feature Product</h2>
       <Slider {...settings}>
         {cardsData.map(card => (
           <Card key={card.id} {...card} />

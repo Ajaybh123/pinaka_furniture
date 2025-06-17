@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className={`bg-[#272343] h-[45px] w-full text-white text-sm font-inter transition-all duration-300 ${hideTopBar ? '-translate-y-full' : 'translate-y-0'} fixed top-0 left-0 z-40`}>
         <div className="container mx-auto px-4 pt-3 md:px-32 flex justify-between items-center w-full">
           <p className="hidden md:flex items-center gap-4">
-            <PhoneCall size={16} /> +91-8070207280 
+            <PhoneCall size={16} /> +91-8070207080 
             <MailCheck size={16} /> pinakainc@gmail.com
           </p>
           <div className="flex items-center gap-4">
