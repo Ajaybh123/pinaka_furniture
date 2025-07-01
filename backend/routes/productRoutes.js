@@ -12,7 +12,7 @@ router.post("/", auth, upload.single("image"), async (req, res) => {
 });
 
 // Get all products
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   const products = await Product.find({ userId: req.userId });
   res.json(products);
 });

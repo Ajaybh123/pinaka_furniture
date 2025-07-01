@@ -8,7 +8,7 @@ router.post("/", auth, async (req, res) => {
   res.json(category);
 });
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   const categories = await Category.find({ userId: req.userId });
   res.json(categories);
 });
