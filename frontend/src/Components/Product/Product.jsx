@@ -58,7 +58,7 @@ const Product = () => {
             <div className="feature_image mb-4 relative">
               <img
                 className="w-full h-[260px] sm:h-[280px] md:h-[300px] object-cover rounded-lg"
-                src={`http://localhost:8000${product.image}`}
+                src={`https://pinaka-furnitureadmin.onrender.com${product.image}`}
                 alt={product.name}
               />
               {product.category && (

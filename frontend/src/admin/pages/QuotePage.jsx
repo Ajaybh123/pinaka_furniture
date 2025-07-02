@@ -63,7 +63,7 @@ export default function QuotePage() {
                                 <td className="px-4 py-2 flex items-center gap-3">
                                     {q.productId?.image && (
                                         <img
-                                            src={`http://localhost:8000${q.productId.image}`}
+                                            src={`https://pinaka-furnitureadmin.onrender.com${q.productId.image}`}
                                             alt={q.productId?.productName}
                                             className="w-12 h-12 object-cover rounded"
                                         />

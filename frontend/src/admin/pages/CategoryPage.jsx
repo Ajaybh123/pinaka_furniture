@@ -114,7 +114,7 @@ export default function CategoryPage() {
                 <td className="px-4 py-3">
                   {cat.image && (
                     <img
-                      src={`http://localhost:8000${cat.image}`}
+                      src={`https://pinaka-furnitureadmin.onrender.com${cat.image}`}
                       alt={cat.categoryName}
                       className="w-12 h-12 object-cover rounded"
                     />

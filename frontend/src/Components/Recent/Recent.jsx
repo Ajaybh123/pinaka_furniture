@@ -13,7 +13,7 @@ const Card = ({ image, title, status, id }) => {
   return (
     <div className="card-container-recent">
       {status && <span className="card-category-recent">{status}</span>}
-      <img src={`http://localhost:8000${image}`} alt={title} className="card-image-recent rounded-xl" />
+      <img src={`https://pinaka-furnitureadmin.onrender.com${image}`} alt={title} className="card-image-recent rounded-xl" />
       <div className="card-content-recent">
         <h3 className="card-title-recent">{title}</h3>
         <button

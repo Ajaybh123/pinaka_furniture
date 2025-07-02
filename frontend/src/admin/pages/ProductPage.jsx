@@ -135,7 +135,7 @@ export default function ProductPage() {
                 <td className="px-4 py-2">{index + 1}</td>
                 <td className="px-4 py-2">
                   <img
-                    src={`http://localhost:8000${p.image}`}
+                    src={`https://pinaka-furnitureadmin.onrender.com${p.image}`}
                     alt={p.productName}
                     className="w-16 h-16 object-cover rounded"
                   />

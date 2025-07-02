@@ -35,7 +35,7 @@ const Features = () => {
             <Link to={`/product/productDetail/${featuredProducts[0]._id}`}>
               <div className="relative rounded-xl overflow-hidden bg-slate-100 shadow hover:shadow-lg transition-shadow duration-300 h-[500px] flex items-center justify-center">
                 <img
-                  src={`http://localhost:8000${featuredProducts[0].image}`}
+                  src={`https://pinaka-furnitureadmin.onrender.com${featuredProducts[0].image}`}
                   alt={featuredProducts[0].productName}
                   className="w-full h-full object-contain"
                 />
@@ -55,7 +55,7 @@ const Features = () => {
               <Link key={item._id} to={`/product/productDetail/${item._id}`}>
                 <div className="relative rounded-xl overflow-hidden bg-slate-100 shadow hover:shadow-lg transition-shadow duration-300 h-[240px] flex items-center justify-center">
                   <img
-                    src={`http://localhost:8000${item.image}`}
+                    src={`https://pinaka-furnitureadmin.onrender.com${item.image}`}
                     alt={item.productName}
                     className="w-full h-full object-contain"
                   />
@@ -73,7 +73,7 @@ const Features = () => {
             <Link to={`/product/productDetail/${featuredProducts[3]._id}`}>
               <div className="relative rounded-xl overflow-hidden bg-slate-100 shadow hover:shadow-lg transition-shadow duration-300 h-[240px] flex items-center justify-center">
                 <img
-                  src={`http://localhost:8000${featuredProducts[3].image}`}
+                  src={`https://pinaka-furnitureadmin.onrender.com${featuredProducts[3].image}`}
                   alt={featuredProducts[3].productName}
                   className="w-full h-full object-contain"
                 />
