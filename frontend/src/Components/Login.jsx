@@ -1,34 +1,41 @@
 import React, { useState } from "react";
-import API from "../api";
+import API from "../admin/api";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Register() {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+export default function Login() {
+  const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const res = await API.post("/users/register", form);
-      localStorage.setItem("token", res.data.token);
+      const res = await API.post("/users/login", form);
 
-      toast.success("Registration Successful!", {
+      // ✅ Store token and role in localStorage
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data));
+
+      toast.success("Login Successful!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
 
       setTimeout(() => {
-        navigate("/admin");
-      }, 3000);
-    } catch (error) {
-      console.error(error);
-      toast.error("Registration Failed! Try again.", {
+        if (res.data.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+          window.location.reload();
+        }
+      }, 1000);
+    } catch (err) {
+      toast.error(err.response?.data?.msg || "Login Failed!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
+      console.error("Login error:", err);
     }
   };
 
@@ -54,20 +61,13 @@ export default function Register() {
         </div>
 
         <h2 className="text-center text-xl font-semibold text-gray-800 mb-1">
-          Create your account
+          Sign in with email
         </h2>
         <p className="text-center text-sm text-gray-500 mb-6">
-          Set your details with Panel. It’s quick and easy.
+          Login with your account to do any update in panel
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            placeholder="Name"
-            className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            required
-          />
           <input
             type="email"
             placeholder="Email"
@@ -78,28 +78,33 @@ export default function Register() {
           <input
             type="password"
             placeholder="Password"
-            className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-4 py-2 rounded-lg border-2 border-neutral-900 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
             onChange={(e) => setForm({ ...form, password: e.target.value })}
             required
           />
+
+          <div className="text-right">
+            <a href="#" className="text-sm text-blue-600 hover:underline">
+              Forgot password?
+            </a>
+          </div>
 
           <button
             type="submit"
             className="w-full py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition cursor-pointer"
           >
-            Register
+            Login
           </button>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-600">
-          Already have an account?{" "}
-          <Link to="/admin/login" className="text-blue-600 hover:underline">
-            Login
+          Don’t have an account?{" "}
+          <Link to="/register" className="text-blue-600 hover:underline">
+            Register
           </Link>
         </p>
       </div>
 
-      {/* Toast container */}
       <ToastContainer />
     </div>
   );

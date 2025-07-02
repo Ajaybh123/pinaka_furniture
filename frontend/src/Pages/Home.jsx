@@ -1,12 +1,11 @@
-import Banner from "../../Components/Banner/Banner";
-import Brand from "../../Components/Brand/Brand";
-import Categories from "../../Components/Categories/Categories";
-import Client from "../../Components/Client/Client";
-import Poster from "../../Components/Poster/Poster";
-import Product from "../../Components/Product/Product";
-import Recent from "../../Components/Recent/Recent";
-import Delivery from './../../Components/Delivery/Delivery';
-import Features from './../../Components/Features/Features';
+import Banner from "../Components/Banner/Banner";
+import Brand from "../Components/Brand/Brand";
+import Categories from "../Components/Categories/Categories";
+import Poster from "../Components/Poster/Poster";
+import Product from "../Components/Product/Product";
+import Recent from "../Components/Recent/Recent";
+import Delivery from '../Components/Delivery/Delivery';
+import Features from '../Components/Features/Features';
 
 const Home = () => {
     return (

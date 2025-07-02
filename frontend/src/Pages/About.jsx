@@ -1,12 +1,12 @@
 // src/components/AboutUs.tsx
 import React from "react";
 
-import  gallary1 from "../../assets/gallary/gallary1.webp";
-import  gallary2 from "../../assets/gallary/gallary2.webp";
-import  gallary3 from "../../assets/gallary/gallary3.webp";
-import  gallary4 from "../../assets/gallary/gallary4.webp";
-import  gallary5 from "../../assets/gallary/gallary5.webp";
-import  gallary6 from "../../assets/gallary/gallary6.webp";
+import  gallary1 from "../assets/gallary/gallary1.webp";
+import  gallary2 from "../assets/gallary/gallary2.webp";
+import  gallary3 from "../assets/gallary/gallary3.webp";
+import  gallary4 from "../assets/gallary/gallary4.webp";
+import  gallary5 from "../assets/gallary/gallary5.webp";
+import  gallary6 from "../assets/gallary/gallary6.webp";
 
 const images = [gallary1, gallary2, gallary3, gallary4, gallary5, gallary6];
 

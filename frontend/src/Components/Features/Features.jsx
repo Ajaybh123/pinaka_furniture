@@ -1,19 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import API from '../../admin/api';
-import SectionTitle from '../SectionTitle/SectionTitle';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import API from "../../admin/api";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Features = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const fetchData = async () => {
-    const [catRes, prodRes] = await Promise.all([
-      API.get("/categories"),
-      API.get("/products?featured=true"),
-    ]);
-    setCategories(catRes.data);
-    setFeaturedProducts(prodRes.data);
+    try {
+      const [catRes, prodRes] = await Promise.all([
+        API.get("/categories"),
+        API.get("/products?featured=true"),
+      ]);
+      setCategories(catRes.data || []);
+      setFeaturedProducts(prodRes.data || []);
+    } catch (err) {
+      console.error("Error fetching data:", err.response?.data || err.message);
+    }
   };
 
   useEffect(() => {
@@ -48,7 +52,7 @@ const Features = () => {
         <div className="md:col-span-6 grid md:grid-rows-2 gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredProducts.slice(1, 3).map((item, idx) => (
-              <Link key={idx} to={`/product/productDetail/${item._id}`}>
+              <Link key={item._id} to={`/product/productDetail/${item._id}`}>
                 <div className="relative rounded-xl overflow-hidden bg-slate-100 shadow hover:shadow-lg transition-shadow duration-300 h-[240px] flex items-center justify-center">
                   <img
                     src={`http://localhost:8000${item.image}`}
@@ -64,7 +68,7 @@ const Features = () => {
             ))}
           </div>
 
-          {/* One more product on the bottom */}
+          {/* Bottom Product */}
           {featuredProducts[3] && (
             <Link to={`/product/productDetail/${featuredProducts[3]._id}`}>
               <div className="relative rounded-xl overflow-hidden bg-slate-100 shadow hover:shadow-lg transition-shadow duration-300 h-[240px] flex items-center justify-center">

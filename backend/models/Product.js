@@ -11,6 +11,10 @@ const productSchema = new mongoose.Schema({
   width: Number,
   image: String,
   userId: String,
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+  },
 });
 
 module.exports = mongoose.model("Product", productSchema);

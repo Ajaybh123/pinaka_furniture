@@ -1,11 +1,43 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, PhoneCall } from "lucide-react";
-import { useState } from "react";
-import Logo from "../../assets/Banner/logo.png"; // replace with your actual logo path
+import { useEffect, useState } from "react";
+import Logo from "../../assets/Banner/logo.png"; // Replace with your logo
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [productOpen, setProductOpen] = useState(false); // for mobile dropdown
+  const [productOpen, setProductOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const updateUserFromStorage = () => {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      } else {
+        setUser(null);
+      }
+    };
+
+    // Initial check
+    updateUserFromStorage();
+
+    // Listen to login/logout changes
+    window.addEventListener("userChanged", updateUserFromStorage);
+
+    return () => {
+      window.removeEventListener("userChanged", updateUserFromStorage);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    setUser(null);
+    window.dispatchEvent(new Event("userChanged")); // Notify other components
+    navigate("/login");
+  };
 
   return (
     <div className="w-full">
@@ -20,7 +52,6 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-6 relative">
             <NavLink to="/" className="text-gray-700 font-medium hover:text-[#029fae] transition">Home</NavLink>
 
-            {/* Product Dropdown */}
             <div className="group relative">
               <button className="text-gray-700 font-medium hover:text-[#029fae] transition inline-flex items-center gap-1">
                 Products <ChevronDown size={16} />
@@ -35,20 +66,34 @@ export default function Header() {
             </div>
 
             <NavLink to="/about" className="text-gray-700 font-medium hover:text-[#029fae] transition">About Us</NavLink>
+
             <span className="flex text-gray-600 font-medium gap-1">
               <PhoneCall size={16} className="mt-1" />
               <p>+91-8070207080</p>
-              </span>
+            </span>
 
-            <Link
-              to="/login"
-              className="bg-[#029fae] text-white px-4 py-2 rounded-full hover:bg-[#027c8a] transition"
-            >
-              Login / Signup
-            </Link>
+            {/* ✅ Show user name or login/signup */}
+            {user ? (
+              <div className="flex items-center gap-3">
+                <span className="text-gray-700 font-medium">{user.name || user.email}</span>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500 text-white px-4 py-1 rounded-full hover:bg-red-600 transition cursor-pointer"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="bg-[#029fae] text-white px-4 py-2 rounded-full hover:bg-[#027c8a] transition"
+              >
+                Login / Signup
+              </Link>
+            )}
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <button className="md:hidden text-black" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -60,7 +105,6 @@ export default function Header() {
             <nav className="flex flex-col gap-4 text-base">
               <NavLink to="/" className="text-gray-700 hover:text-[#029fae]">Home</NavLink>
 
-              {/* Product Mobile Toggle */}
               <div>
                 <button
                   className="flex items-center justify-between w-full text-gray-700 hover:text-[#029fae]"
@@ -80,16 +124,31 @@ export default function Header() {
               </div>
 
               <NavLink to="/about" className="text-gray-700 hover:text-[#029fae]">About Us</NavLink>
+
               <span className="flex text-gray-600 font-medium gap-1">
-              <PhoneCall size={16} className="mt-1" />
-              <p>+91-8070207080</p>
+                <PhoneCall size={16} className="mt-1" />
+                <p>+91-8070207080</p>
               </span>
-              <Link
-                to="/login"
-                className="bg-[#029fae] text-white px-4 py-2 rounded-full text-center w-fit"
-              >
-                Login / Signup
-              </Link>
+
+              {/* ✅ Mobile Auth Buttons */}
+              {user ? (
+                <div className="flex flex-col gap-2">
+                  <span className="text-gray-700 font-medium">{user.name || user.email}</span>
+                  <button
+                    onClick={handleLogout}
+                    className="bg-red-500 text-white px-4 py-2 rounded-full"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="bg-[#029fae] text-white px-4 py-2 rounded-full text-center w-fit"
+                >
+                  Login / Signup
+                </Link>
+              )}
             </nav>
           </div>
         )}

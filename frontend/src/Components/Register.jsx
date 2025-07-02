@@ -1,33 +1,44 @@
 import React, { useState } from "react";
-import API from "../api";
+import API from "../admin/api";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Login() {
-  const [form, setForm] = useState({ email: "", password: "" });
+export default function Register() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "user", // default role
+  });
+
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await API.post("/users/login", form);
-      localStorage.setItem("token", res.data.token);
 
-      toast.success("Login Successful!", {
+    try {
+      await API.post("/users/register", form);
+
+      toast.success("Registration Successful!", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
 
       setTimeout(() => {
-        navigate("/admin");
-      }, 2000);
-    } catch (err) {
-      toast.error(err.response?.data?.msg || "Login Failed!", {
+        navigate("/login");
+      }, 1000);
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast.error("Registration Failed! Try again.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
       });
-      console.error("Login error:", err);
     }
   };
 
@@ -53,51 +64,70 @@ export default function Login() {
         </div>
 
         <h2 className="text-center text-xl font-semibold text-gray-800 mb-1">
-          Sign in with email
+          Create your account
         </h2>
         <p className="text-center text-sm text-gray-500 mb-6">
-          Login with your account to do any update in panel
+          Set your details with Panel. It’s quick and easy.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
-            type="email"
-            placeholder="Email"
+            type="text"
+            name="name"
+            value={form.name}
+            placeholder="Name"
+            onChange={handleChange}
             className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full px-4 py-2 rounded-lg border-2 border-neutral-900 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
             required
           />
 
-          <div className="text-right">
-            <a href="#" className="text-sm text-blue-600 hover:underline">
-              Forgot password?
-            </a>
-          </div>
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            placeholder="Email"
+            onChange={handleChange}
+            className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            required
+          />
+
+          <input
+            type="password"
+            name="password"
+            value={form.password}
+            placeholder="Password"
+            onChange={handleChange}
+            className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            required
+          />
+
+          {/* Role Selection */}
+          <select
+            name="role"
+            value={form.role}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
 
           <button
             type="submit"
             className="w-full py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition cursor-pointer"
           >
-            Login
+            Register
           </button>
         </form>
 
-        {/* <p className="mt-6 text-center text-sm text-gray-600">
-          Don’t have an account?{" "}
-          <Link to="/admin/register" className="text-blue-600 hover:underline">
-            Register
+        <p className="mt-6 text-center text-sm text-gray-600">
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-600 hover:underline">
+            Login
           </Link>
-        </p> */}
+        </p>
       </div>
 
-      {/* Toast Container */}
       <ToastContainer />
     </div>
   );

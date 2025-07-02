@@ -1,11 +1,6 @@
 import { useEffect, useState, Fragment } from "react";
 import API from "../api";
-import {
-  FaEdit,
-  FaTrash,
-  FaPlus,
-  FaTimes,
-} from "react-icons/fa";
+import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
 import { Dialog, Transition } from "@headlessui/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,12 +8,12 @@ import "react-toastify/dist/ReactToastify.css";
 export default function CategoryPage() {
   const [categories, setCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [form, setForm] = useState({ categoryName: "" });
-  const [editId, setEditId] = useState(null); // null means add mode
+  const [form, setForm] = useState({ categoryName: "", image: null });
+  const [editId, setEditId] = useState(null);
 
   const fetchCategories = async () => {
     try {
-      const res = await API.get("/categories");
+      const res = await API.get("/categories/public");
       setCategories(res.data);
     } catch (err) {
       toast.error("Failed to fetch categories");
@@ -30,32 +25,45 @@ export default function CategoryPage() {
   }, []);
 
   const openAddForm = () => {
-    setForm({ categoryName: "" });
+    setForm({ categoryName: "", image: null });
     setEditId(null);
     setIsOpen(true);
   };
 
   const openEditForm = (cat) => {
-    setForm({ categoryName: cat.categoryName });
+    setForm({ categoryName: cat.categoryName, image: null }); // ✅ Correct key
     setEditId(cat._id);
     setIsOpen(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("categoryName", form.categoryName); // ✅ Fixed key
+    if (form.image) {
+      formData.append("image", form.image);
+    }
+
     try {
       if (editId) {
-        await API.put(`/categories/${editId}`, form);
+        await API.put(`/categories/${editId}`, formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
         toast.success("Category updated");
       } else {
-        await API.post("/categories", form);
+        await API.post("/categories", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
         toast.success("Category added");
       }
+
       setIsOpen(false);
-      setForm({ categoryName: "" });
+      setForm({ categoryName: "", image: null });
       setEditId(null);
       fetchCategories();
-    } catch {
+    } catch (err) {
+      console.error("Category Submit Error:", err.response?.data || err.message);
       toast.error("Something went wrong");
     }
   };
@@ -63,6 +71,7 @@ export default function CategoryPage() {
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this category?");
     if (!confirmDelete) return;
+
     try {
       await API.delete(`/categories/${id}`);
       toast.success("Category deleted");
@@ -90,6 +99,7 @@ export default function CategoryPage() {
             <tr>
               <th className="px-4 py-3">S.No</th>
               <th className="px-4 py-3">Category Name</th>
+              <th className="px-4 py-3">Image</th>
               <th className="px-4 py-3 text-center">Actions</th>
             </tr>
           </thead>
@@ -101,6 +111,15 @@ export default function CategoryPage() {
               >
                 <td className="px-4 py-3">{index + 1}</td>
                 <td className="px-4 py-3">{cat.categoryName}</td>
+                <td className="px-4 py-3">
+                  {cat.image && (
+                    <img
+                      src={`http://localhost:8000${cat.image}`}
+                      alt={cat.categoryName}
+                      className="w-12 h-12 object-cover rounded"
+                    />
+                  )}
+                </td>
                 <td className="px-4 py-3 text-center space-x-3">
                   <button
                     onClick={() => openEditForm(cat)}
@@ -119,7 +138,7 @@ export default function CategoryPage() {
             ))}
             {categories.length === 0 && (
               <tr>
-                <td colSpan="3" className="text-center px-4 py-6 text-gray-500">
+                <td colSpan="4" className="text-center px-4 py-6 text-gray-500">
                   No categories found.
                 </td>
               </tr>
@@ -162,11 +181,20 @@ export default function CategoryPage() {
                   <input
                     type="text"
                     value={form.categoryName}
-                    onChange={(e) => setForm({ categoryName: e.target.value })}
+                    onChange={(e) => setForm({ ...form, categoryName: e.target.value })}
                     placeholder="Enter category name"
                     className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     required
                   />
+
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+                    className="w-full px-4 py-2 border-2 border-neutral-900 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required={!editId}
+                  />
+
                   <div className="flex justify-end gap-2 pt-2">
                     <button
                       type="button"

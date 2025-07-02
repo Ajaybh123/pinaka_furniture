@@ -12,7 +12,8 @@ export default function Sidebar() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/admin/login");
+    localStorage.removeItem("user");
+    navigate("/login");
   };
 
   return (

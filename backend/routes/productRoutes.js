@@ -4,70 +4,102 @@ const Product = require("../models/Product");
 const upload = require("../middleware/upload");
 const auth = require("../middleware/auth");
 
-// Create product
+// =============================
+// ✅ Create Product (with image)
+// =============================
 router.post("/", auth, upload.single("image"), async (req, res) => {
-  const image = "/upload/" + req.file.filename;
-  const product = await Product.create({ ...req.body, image, userId: req.userId });
-  res.json(product);
+  try {
+    const image = req.file ? "/upload/" + req.file.filename : "";
+    const product = await Product.create({
+      ...req.body,
+      image,
+      userId: req.userId,
+    });
+    res.json(product);
+  } catch (err) {
+    console.error("Create error:", err);
+    res.status(500).json({ message: "Failed to create product" });
+  }
 });
 
-// Get all products
+// =============================
+// ✅ Get All Products (Public)
+// =============================
 router.get("/", async (req, res) => {
-  const products = await Product.find({ userId: req.userId });
-  res.json(products);
+  try {
+    const products = await Product.find().populate("category");
+    res.json(products);
+  } catch (err) {
+    console.error("Error fetching products:", err);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
+// =============================
+// ✅ Get Products by User (Admin Protected)
+// =============================
+router.get("/user", auth, async (req, res) => {
+  try {
+    const products = await Product.find({ userId: req.userId }).populate("category");
+    res.json(products);
+  } catch (err) {
+    console.error("Error fetching user products:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
+// =============================
+// ✅ Get Single Product by ID
+// =============================
+router.get("/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id).populate("category");
+    if (!product) return res.status(404).json({ message: "Product not found" });
+    res.json(product);
+  } catch (err) {
+    console.error("Error fetching product:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// =============================
+// ✅ Update Product
+// =============================
 router.put("/:id", auth, upload.single("image"), async (req, res) => {
   try {
     const updateData = { ...req.body };
-
-    // If image is provided in the update
     if (req.file) {
       updateData.image = "/upload/" + req.file.filename;
     }
 
-    const updatedProduct = await Product.findOneAndUpdate(
+    const updated = await Product.findOneAndUpdate(
       { _id: req.params.id, userId: req.userId },
       updateData,
       { new: true }
     );
 
-    if (!updatedProduct) {
+    if (!updated) {
       return res.status(404).json({ message: "Product not found" });
     }
 
-    res.json(updatedProduct);
+    res.json(updated);
   } catch (err) {
     console.error("Update error:", err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Failed to update product" });
   }
 });
 
-
-// ✅ Get single product by ID
-router.get("/:id", auth, async (req, res) => {
-  try {
-    const product = await Product.findOne({
-      _id: req.params.id,
-      userId: req.userId,
-    });
-
-    if (!product) {
-      return res.status(404).json({ message: "Product not found" });
-    }
-
-    res.json(product);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
-// Delete product
+// =============================
+// ✅ Delete Product
+// =============================
 router.delete("/:id", auth, async (req, res) => {
-  await Product.findOneAndDelete({ _id: req.params.id, userId: req.userId });
-  res.json({ msg: "Deleted" });
+  try {
+    await Product.findOneAndDelete({ _id: req.params.id, userId: req.userId });
+    res.json({ message: "Product deleted" });
+  } catch (err) {
+    console.error("Delete error:", err);
+    res.status(500).json({ message: "Failed to delete product" });
+  }
 });
 
 module.exports = router;

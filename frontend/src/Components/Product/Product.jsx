@@ -19,7 +19,7 @@ const Product = () => {
     const fetchProducts = async () => {
       try {
         const res = await API.get("/products");
-        setProducts(res.data);
+        setProducts(res.data || []);
       } catch (err) {
         console.error("Failed to fetch products:", err);
       }
@@ -59,11 +59,13 @@ const Product = () => {
               <img
                 className="w-full h-[260px] sm:h-[280px] md:h-[300px] object-cover rounded-lg"
                 src={`http://localhost:8000${product.image}`}
-                alt={product.productName}
+                alt={product.name}
               />
               {product.category && (
                 <div className="absolute top-4 left-4 bg-[#007580] text-white px-2 py-1 rounded-lg text-xs">
-                  {product.category}
+                  {typeof product.category === "string"
+                    ? product.category
+                    : product.category?.name || product.category?.categoryName}
                 </div>
               )}
             </div>
@@ -71,7 +73,7 @@ const Product = () => {
             <div className="feature_content">
               <div className="flex items-center justify-between mb-2">
                 <h4 className="text-sm sm:text-base text-[#007580] capitalize font-inter font-medium">
-                  {product.productName}
+                  {product.name}
                 </h4>
                 <span
                   className="bg-[#007580] h-[40px] w-[100px] rounded-lg flex items-center justify-center cursor-pointer"
