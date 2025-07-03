@@ -25,7 +25,7 @@ router.post("/", auth, upload.single("image"), async (req, res) => {
 // =============================
 // ✅ Get All Products (Public)
 // =============================
-router.get("/", async (req, res) => {
+router.get("/public", async (req, res) => {
   try {
     const products = await Product.find().populate("category");
     res.json(products);
@@ -38,7 +38,7 @@ router.get("/", async (req, res) => {
 // =============================
 // ✅ Get Products by User (Admin Protected)
 // =============================
-router.get("/user", auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
     const products = await Product.find({ userId: req.userId }).populate("category");
     res.json(products);
