@@ -66,7 +66,7 @@ const Features = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await API.get('/products');
+        const res = await API.get('/products/public');
         setProducts(res.data.slice(0, 10)); // recent 10 products
       } catch (error) {
         console.error('Failed to fetch recent products:', error);
