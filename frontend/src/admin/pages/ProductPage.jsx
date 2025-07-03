@@ -26,7 +26,7 @@ export default function ProductPage() {
   const fetchData = async () => {
     const [catRes, prodRes] = await Promise.all([
       API.get("/categories/public"),
-      API.get("/products"),
+      API.get("/products/public"),
     ]);
     setCategories(catRes.data);
     setProducts(prodRes.data);
