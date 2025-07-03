@@ -95,8 +95,8 @@
 
 
 import React from "react";
-import chairsPool from "../../assets/Booths/20250530_0432_Elegant Chair Set_remix_01jwf4frndewtrckcwfzjaxwza.png";
-import bicroChair from "../../assets/table/marble/20250525_1756_Elegant Table Design_remix_01jw3peypgf6eaxprft6fw8dmt.png";
+import chairsPool from "../../assets/Booths/booth1.png";
+import bicroChair from "../../assets/table/marble/marble_table1.png";
 import extraChair from "../../assets/brands/brand3.png";
 import romaChair from "../../assets/brands/brand4.png";
 
