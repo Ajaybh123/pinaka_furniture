@@ -10,16 +10,26 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const quoteRoutes = require("./routes/quoteRoutes");
 
 const app = express();
+
 connectDB();
 
 app.use(cors());
 app.use(express.json());
+
 app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
-app.use("/api/quotes", quoteRoutes)
+app.use("/api/quotes", quoteRoutes);
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
 
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
